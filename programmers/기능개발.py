@@ -1,5 +1,3 @@
-import itertools
-
 def solution(progresses, speeds):
     answer = []
     while progresses:
