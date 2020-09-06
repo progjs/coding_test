@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/5052
 # 전화번호 목록
 
-from sys import stdin, stdout
+from sys import stdin
 
 def solve(num_list):
     num_list.sort()
@@ -18,4 +18,4 @@ for _ in range(t):
     for _ in range(n):
         numbers.append(stdin.readline().rstrip())
     
-    stdout.write(solve(numbers))
+    print(solve(numbers))
