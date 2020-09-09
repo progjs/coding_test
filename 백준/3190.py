@@ -8,13 +8,6 @@ input = stdin.readline
 dx = [0,0,-1,1] # 상하좌우
 dy = [-1,1,0,0]
 
-def find_tail(cur_x, cur_y, head):
-    for i in range(4):
-        new_x, new_y = cur_x+dx[i], cur_y+dy[i]
-        if board[new_y][new_x] == 2:
-            return [new_x, new_y]
-    return head
-
 N = int(input())
 K = int(input())
 board = [[0]*(N+2) for _ in range(N+2)]
@@ -33,24 +26,28 @@ for _ in range(cnt):
     turns.append(tuple(input().split()))
 
 change = {'D':[3,2,0,1], 'L':[2,3,1,0]}
-t, dir, s_head = 0, 3, [1,1]
-s_tail = [1,1]
+t, dir = 0, 3
+snake = deque([[1,1]])
 board[1][1] = 2
+
+# for i in range(N+2):
+#     print(board[i])
+
 while True:
     t += 1 # 1초 경과
     # 뱀 머리 이동
-    s_head[0] += dx[dir]
-    s_head[1] += dy[dir]
-    # print(s_head)
+    snake.appendleft([snake[0][0]+dx[dir], snake[0][1]+dy[dir]])
+    s_head = snake[0]
 
     if board[s_head[1]][s_head[0]] == 1:
         board[s_head[1]][s_head[0]] = 2
     elif board[s_head[1]][s_head[0]] == 0:
-        board[s_head[1]][s_head[0]] = 2
+        s_tail = snake.pop()
         board[s_tail[1]][s_tail[0]] = 0
-        s_tail = find_tail(s_tail[0], s_tail[1], s_head)
+        board[s_head[1]][s_head[0]] = 2
     else:
         break
+
     # print("{}초: {} {}".format(t, s_head, s_tail))
     # for i in range(N+2):
     #     print(board[i])
