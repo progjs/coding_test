@@ -16,3 +16,11 @@ def solution(data):
             answer = len(result)
     return answer
     
+'''
+if i >= len(s)-n+1:
+    print(n, s[i:i+n])
+
+확인해보면
+슬라이싱을 했을 때에는 문자열 총 길이보다 큰 인덱스로 접근해도 error나지 않고
+최대까지 값을 가져온다.
+'''
