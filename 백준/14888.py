@@ -9,9 +9,10 @@ opers = list(map(int, input().split()))
 opmap = []
 for i,p in enumerate(opers):
     opmap += [i]*p
-#'+-*%'
+#   +-*%
 
-ans_max, ans_min = -100000000, 100000000
+ans_max, ans_min = -9876543210, 9876543210
+
 for case in permutations(opmap, len(opmap)):
     ans = numbers[0]
     for i, b in enumerate(numbers[1:]):
