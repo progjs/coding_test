@@ -1,3 +1,6 @@
+# https://www.acmicpc.net/problem/17144
+# 미세먼지 안녕!
+
 R, C, T = map(int, input().split())
 rec, board = [], []
 for i in range(R):
