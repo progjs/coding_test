@@ -21,3 +21,4 @@ else:
         d[i][2] = d[i-1][1] + stair[i]
 
     print(max(d[n][1], d[n][2]))
+    
