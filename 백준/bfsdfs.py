@@ -1,7 +1,5 @@
 # 음료수 얼려 먹기
 # DFS
-
-
 def dfs(x,y):
     if x < 0 or x >= n or y < 0 or y >= m:
         return False

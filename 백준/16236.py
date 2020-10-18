@@ -38,7 +38,7 @@ def bfs(ssr, ssc):
             if nr<0 or nr>=N or nc<0 or nc>=N or visited[nr][nc] == True:
                 continue
             visited[nr][nc] = True # 방문표시
-            if sea[nr][nc] == 0 or sea[nr][nc] == size: # 물고기 없거나 크기 같은 물고기 있ㄴ
+            if sea[nr][nc] == 0 or sea[nr][nc] == size: # 물고기 없거나 크기 같은 물고기 있는지
                 queue.append([nr, nc, d+1])
             elif sea[nr][nc] < size: # 작은 물고기 발견
                 heapq.heappush(hp, [d+1, nr, nc]) # 우선순위: 거리, 위, 왼쪽

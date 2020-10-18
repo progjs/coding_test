@@ -9,7 +9,7 @@ def dfs(r, c, d):
     global N, M, answer, board
     
     for i in range(4):
-        d = (d+3) % 4
+        d = (d+3) % 4 # 현재 방향의 왼쪽
         nr, nc = r+dr[d], c+dc[d]
         if 0 <= nr < N and 0 <= nc < M and board[nr][nc] == '0':
             board[nr][nc] = '2'
@@ -17,7 +17,7 @@ def dfs(r, c, d):
             dfs(nr, nc, d)
             break
     else:
-        nr, nc = r-dr[d], c-dc[d]
+        nr, nc = r-dr[d], c-dc[d] # 후진
         if board[nr][nc] == '1':
             return
         dfs(nr, nc, d)

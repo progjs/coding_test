@@ -16,7 +16,7 @@ board[N+1] = [3]*(N+2)
 for i in range(1,N+2):
     board[i][0], board[i][N+1] = 3, 3
 
-for _ in range(K):
+for _ in range(K): # 사과
     x,y = map(int, input().split())
     board[x][y] = 1
 
@@ -34,14 +34,14 @@ board[1][1] = 2
 #     print(board[i])
 
 while True:
-    t += 1 # 1초 경과
+    t += 1 # 1초 경과 (이 방향으로 몇초동안 이동했는지 계산하려고)
     # 뱀 머리 이동
     snake.appendleft([snake[0][0]+dx[dir], snake[0][1]+dy[dir]])
     s_head = snake[0]
 
-    if board[s_head[1]][s_head[0]] == 1:
+    if board[s_head[1]][s_head[0]] == 1: # 사과있음
         board[s_head[1]][s_head[0]] = 2
-    elif board[s_head[1]][s_head[0]] == 0:
+    elif board[s_head[1]][s_head[0]] == 0: # 꼬리 삭제
         s_tail = snake.pop()
         board[s_tail[1]][s_tail[0]] = 0
         board[s_head[1]][s_head[0]] = 2
