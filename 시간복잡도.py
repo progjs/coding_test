@@ -28,11 +28,22 @@ def func2(n, arr):  # O(n**2)
             if arr[i]+j == 100: return 1
     return 0
 
+def func22(n, arr): # O(n)
+    chk = [False]*101
+    for num in arr:
+        if chk[100-num]: # num과 합해서 100이되는 수(100-num)가 num 이전에 존재했는지
+            return 1
+        else:
+            chk[num] = True # 없으면, num의 존재여부를 chk에 체크
+    return 0
+
 def test2():    
     n = int(input())
     arr = list(map(int, input().split()))
-    print(func2(3, arr))
+    # print(func2(n, arr))
+    print(func22(n, arr))
 
+test2()
 
 '''
 func4(N)
