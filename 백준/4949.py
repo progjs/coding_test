@@ -10,7 +10,7 @@ while True:
 
     stack = deque()
     for w in sentence:
-        if w in list("(["):
+        if w in "([":
             stack.append(w)
         elif w == ')':
             if stack and stack[-1] == '(':
@@ -24,7 +24,7 @@ while True:
             else:
                 print("no")
                 break
-        
+   
     else:
         print("yes") if not stack else print("no")
 
